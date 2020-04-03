@@ -1,0 +1,210 @@
+DELETE http://localhost:8080/v1/entity?id=11&name=Kate
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name=Kate
+
+<> 2020-04-03T113458.202.txt
+
+###
+
+DELETE http://localhost:8080/v1/entity?id=10&name=Kate
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name=Kate
+
+<> 2020-04-03T113450.202.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=11&name=Kate
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name=Kate
+
+<> 2020-04-03T113416.201.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=1&name=Kate
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name=Kate
+
+<> 2020-04-03T113402.201.txt
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name=Kate
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name=Kate
+
+###
+
+PUT http://localhost:8080/v1/entity?id=1&name="Kate"
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+<> 2020-04-03T113148.201.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=1&name="Kate"
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+<> 2020-04-03T113137.201.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=1&name="Kate"
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+<> 2020-04-03T112949.201.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=1&name="Kate"
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+<> 2020-04-03T112413.201.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=1&name="Kate"
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+<> 2020-04-03T112225.201.txt
+
+###
+
+DELETE http://localhost:8080/v1/entity/id=1
+Accept: */*
+Cache-Control: no-cache
+
+id=1
+
+###
+
+DELETE http://localhost:8080/v1/entity/id=1
+Accept: */*
+Cache-Control: no-cache
+
+id=1
+
+###
+
+DELETE http://localhost:8080/v1/entity/id=1
+Accept: */*
+Cache-Control: no-cache
+
+id=1
+
+###
+
+GET http://localhost:8080/v1/entity/id=1
+Accept: */*
+Cache-Control: no-cache
+
+id=1
+
+###
+
+GET http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+PUT http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+

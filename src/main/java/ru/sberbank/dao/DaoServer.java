@@ -19,7 +19,7 @@ public class DaoServer implements Dao {
         StringBuilder res = new StringBuilder();
         String tmp;
         while ((tmp = reader.readLine()) != null) {
-            if (tmp.contains("id = " + key +  ",")) {
+            if (tmp.contains("id = " + key + ",")) {
                 res.append(tmp);
             }
         }
@@ -36,11 +36,10 @@ public class DaoServer implements Dao {
         String line;
         int code = 0;
         while ((line = reader.readLine()) != null) {
-            if (line.contains("id = " + key)) {
+            if (line.contains("id = " + key + ",")) {
                 code = 1;
                 writer.write("id = " + key + ", data = \"" + new String(value) + "\";\n");
-            }
-            else {
+            } else {
                 writer.write(line);
                 writer.newLine();
             }
@@ -65,7 +64,7 @@ public class DaoServer implements Dao {
 
         String line;
         while ((line = reader.readLine()) != null) {
-            if (!line.contains("id = " + key)) {
+            if (!line.contains("id = " + key + ",")) {
                 writer.write(line);
                 writer.newLine();
             }

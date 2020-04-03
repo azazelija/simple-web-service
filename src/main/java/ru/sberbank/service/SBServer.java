@@ -44,26 +44,17 @@ public class SBServer implements SBService {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
             String requestParamValue = null;
-            requestParamValue = handleGetRequest(httpExchange);
+            requestParamValue = handleGetRequest(httpExchange, 0);
             handleResponse(httpExchange,requestParamValue);
         }
 
-        //Get request id=xxx
-        private String handleGetRequest(HttpExchange httpExchange) {
+        //Get request id=<ID>
+        private String handleGetRequest(HttpExchange httpExchange, int numberParam) {
             return httpExchange
                     .getRequestURI()
                     .toString()
                     .split("\\?")[1]
-                    .split("=")[1];
-        }
-
-        //Get request id=xxx&name=Abcd
-        private String handleGetRequest2(HttpExchange httpExchange) {
-            return httpExchange
-                    .getRequestURI()
-                    .toString()
-                    .split("\\?")[1]
-                    .split("&")[1]
+                    .split("&")[numberParam]
                     .split("=")[1];
         }
 
@@ -87,7 +78,7 @@ public class SBServer implements SBService {
                 outputStream.close();
             }
             else if ("PUT".equals(httpExchange.getRequestMethod())) {
-                daoServer.insert(requestParamValue, handleGetRequest2(httpExchange).getBytes());
+                daoServer.insert(requestParamValue, handleGetRequest(httpExchange, 1).getBytes());
                 byte[] resp = "Created".getBytes();
                 httpExchange.sendResponseHeaders(201, resp.length);
                 outputStream.write(resp);
