@@ -1,5 +1,5 @@
 # simple-web-service
-The server is based on JDK HttpServer
+The server is based on JDK HttpServer and tested by JUnit 5
 
 * HTTP GET /v1/entity?id=\<ID> -- get data by key <ID>. Returns 200 OK and data, or 404 Not Found.
 * HTTP PUT /v1/entity?id=\<ID>&name=\<NAME> -- create / overwrite (insert) data for the <ID>key. Returns 201 Created.
