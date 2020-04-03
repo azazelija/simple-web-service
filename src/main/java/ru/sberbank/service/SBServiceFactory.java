@@ -28,9 +28,6 @@ final class SBServiceFactory{
             throw new IllegalArgumentException("Path doesn't exist: " + data);
         }
 
-        if (!data.isDirectory()) {
-            throw new IllegalArgumentException("Path is not a directory: " + data);
-        }
         return new SBServer(port, data);
     }
 }

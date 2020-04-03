@@ -4,6 +4,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import org.jetbrains.annotations.NotNull;
+import ru.sberbank.dao.DaoServer;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -14,7 +15,8 @@ public class SBServer implements SBService {
     private int port;
     private @NotNull
     final File data;
-    private HttpServer server;
+    private HttpServer httpServer;
+    private DaoServer daoServer;
 
     public SBServer(int port, @NotNull final File data) {
         this.port = port;
@@ -24,9 +26,10 @@ public class SBServer implements SBService {
     @Override
     public void start() {
         try {
-            server = HttpServer.create(new InetSocketAddress(port), 0);
-            server.createContext("/v1", new MyHandler());
-            server.start();
+            daoServer = new DaoServer(data);
+            httpServer = HttpServer.create(new InetSocketAddress(port), 0);
+            httpServer.createContext("/v1/entity", new MyHandler());
+            httpServer.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -34,7 +37,7 @@ public class SBServer implements SBService {
 
     @Override
     public void stop() {
-        server.stop(1000);
+        httpServer.stop(1000);
     }
 
     private class MyHandler implements HttpHandler {
@@ -45,11 +48,22 @@ public class SBServer implements SBService {
             handleResponse(httpExchange,requestParamValue);
         }
 
+        //Get request id=xxx
         private String handleGetRequest(HttpExchange httpExchange) {
             return httpExchange
                     .getRequestURI()
                     .toString()
                     .split("\\?")[1]
+                    .split("=")[1];
+        }
+
+        //Get request id=xxx&name=Abcd
+        private String handleGetRequest2(HttpExchange httpExchange) {
+            return httpExchange
+                    .getRequestURI()
+                    .toString()
+                    .split("\\?")[1]
+                    .split("&")[1]
                     .split("=")[1];
         }
 
@@ -59,19 +73,30 @@ public class SBServer implements SBService {
             String path = httpExchange.getRequestURI().getPath().substring(4);
 
             if ("GET".equals(httpExchange.getRequestMethod())) {
-                String resp = "Hello" + requestParamValue;
+                byte[] resp = daoServer.get(requestParamValue);
 
-                httpExchange.sendResponseHeaders(200, resp.length());
-                outputStream.write(resp.getBytes());
-
+                if (resp.length > 0) {
+                    httpExchange.sendResponseHeaders(200, resp.length);
+                    outputStream.write(resp);
+                }
+                else {
+                    httpExchange.sendResponseHeaders(404, 0);
+                    outputStream.write("Not Found".getBytes());
+                }
                 outputStream.flush();
                 outputStream.close();
             }
             else if ("PUT".equals(httpExchange.getRequestMethod())) {
-
+                daoServer.insert(requestParamValue, handleGetRequest2(httpExchange).getBytes());
+                byte[] resp = "Created".getBytes();
+                httpExchange.sendResponseHeaders(201, resp.length);
+                outputStream.write(resp);
             }
             else if ("DELETE".equals(httpExchange.getRequestMethod())) {
-
+                daoServer.delete(requestParamValue);
+                byte[] resp = "Accepted".getBytes();
+                httpExchange.sendResponseHeaders(202, resp.length);
+                outputStream.write(resp);
             }
         }
     }
