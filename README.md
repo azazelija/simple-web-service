@@ -13,11 +13,14 @@ The server is based on JDK HttpServer and tested by JUnit 5
 
 ### Getting started
 
-- HTTP DELETE
-![](https://github.com/azazelija/simple-web-service/blob/master/SBServiceDELETE.png)
-
 - HTTP GET 
 ![](https://github.com/azazelija/simple-web-service/blob/master/SBServiceGET.png)
+
+- HTTP GET 404
+![](https://github.com/azazelija/simple-web-service/blob/master/SbServiceGETNotFound.png)
+
+- HTTP DELETE
+![](https://github.com/azazelija/simple-web-service/blob/master/SBServiceDELETE.png)
 
 - HTTP PUT
 ![](https://github.com/azazelija/simple-web-service/blob/master/SbServicePUT.png)
