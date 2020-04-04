@@ -1,3 +1,75 @@
+DELETE http://localhost:8080/v1/entity?id=6
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-04T111104.202.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=6&name=Kate
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-04T111040.201.txt
+
+###
+
+PUT http://localhost:8080/v1/entity?id=6?name=Kate
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/v1/entity?id=1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-04T111003.200.txt
+
+###
+
+GET http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+GET http://localhost:8080/v1/entity
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+GET http://localhost:8080/v1/entity?id=1
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+<> 2020-04-04T103049.200.txt
+
+###
+
+GET http://localhost:8080/v1/entity?id=1
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
+GET http://localhost:8080/v1/entity?id=1
+Accept: */*
+Cache-Control: no-cache
+
+id=1&name="Kate"
+
+###
+
 DELETE http://localhost:8080/v1/entity?id=11&name=Kate
 Accept: */*
 Cache-Control: no-cache

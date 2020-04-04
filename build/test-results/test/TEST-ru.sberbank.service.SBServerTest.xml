@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.sberbank.service.SBServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-03T20:03:20" hostname="CAB-WSM-0005236" time="0.006">
+<testsuite name="ru.sberbank.service.SBServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-04T20:07:59" hostname="CAB-WSM-0005236" time="0.045">
   <properties/>
-  <testcase name="start()" classname="ru.sberbank.service.SBServerTest" time="0.006"/>
-  <system-out><![CDATA[Server running
-]]></system-out>
+  <testcase name="TestService()" classname="ru.sberbank.service.SBServerTest" time="0.045"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
