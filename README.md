@@ -10,3 +10,14 @@ The server is based on JDK HttpServer and tested by JUnit 5
 - get () - get data from a file using the <ID>key.
 - insert () - create / overwrite data by the <ID>key.
 - delete () - delete the file using the <ID>key.
+
+### Getting started
+
+- HTTP DELETE
+![](https://github.com/azazelija/simple-web-service/blob/master/SBServiceDELETE.png)
+
+- HTTP GET 
+![](https://github.com/azazelija/simple-web-service/blob/master/SBServiceGET.png)
+
+- HTTP PUT
+![](https://github.com/azazelija/simple-web-service/blob/master/SbServicePUT.png)
